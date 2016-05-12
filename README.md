@@ -8,3 +8,5 @@ Using on a new machine:
 4. Open vim and `:PluginInstall`
 
 fzf should install its binary automatically the first time it is used. If using the base16 theme, be sure base16-shell is setup properly.
+
+If using airline with symbols, add the modified font of your choice: https://github.com/powerline/fonts/tree/master
