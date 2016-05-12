@@ -30,6 +30,7 @@ Plugin 'urthbound/hound.vim'
 Plugin 'chriskempson/base16-vim'
 call vundle#end()            " required
 filetype plugin indent on
+syntax on
 
 let mapleader=","
 
