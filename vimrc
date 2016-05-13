@@ -109,6 +109,10 @@ nmap <c-P> :Files<cr>                   " fzf filesearch
 nmap <c-S> :w<cr>                       " Ctrl-S to save
 noremap <leader>x :bd<CR>
 noremap <leader>w :w<CR>
+nnoremap j gj
+nnoremap k gk
+nnoremap ; :
+inoremap jj <ESC>
 
 " Move lines up/down
 nnoremap <c-j> :m .+1<CR>==
@@ -117,9 +121,6 @@ inoremap <c-j> <Esc>:m .+1<CR>==gi
 inoremap <c-k> <Esc>:m .-2<CR>==gi
 vnoremap <c-j> :m '>+1<CR>gv=gv
 vnoremap <c-k> :m '<-2<CR>gv=gv
-
-nnoremap j gj
-nnoremap k gk
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
