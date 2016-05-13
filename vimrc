@@ -28,6 +28,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'urthbound/hound.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -127,6 +128,6 @@ nnoremap P P=`]<C-o>
 " Autosource .vimrc after changes
 augroup autosourcing
     autocmd!
-    autocmd BufWritePost .vimrc source %
+    autocmd BufWritePost vimrc source %
     autocmd BufWritePre * StripWhitespace
 augroup END
