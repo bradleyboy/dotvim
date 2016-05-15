@@ -29,6 +29,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'urthbound/hound.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -113,6 +115,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap ; :
 inoremap jj <ESC>
+inoremap kk <ESC>:w<CR>
 
 " Move lines up/down
 nnoremap <c-j> :m .+1<CR>==
