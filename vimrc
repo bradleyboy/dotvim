@@ -116,6 +116,8 @@ nnoremap k gk
 nnoremap ; :
 inoremap jj <ESC>
 inoremap kk <ESC>:w<CR>
+" map 0 to first non-blank character
+map 0 ^
 
 " Move lines up/down
 nnoremap <c-j> :m .+1<CR>==
