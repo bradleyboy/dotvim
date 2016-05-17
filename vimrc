@@ -68,6 +68,9 @@ set shiftwidth=4
 set expandtab
 set softtabstop=4
 
+" Ensure file saves get picked up properly by webpack, et al
+set backupcopy=yes
+
 " Always show vim-airline, even with no splits
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -78,6 +81,7 @@ let g:airline_theme='base16'
 
 " JSX
 let g:jsx_ext_required = 0
+highlight link xmlEndTag xmlTag
 
 " syntastic
 set statusline+=%#warningmsg#
