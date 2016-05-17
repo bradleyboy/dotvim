@@ -31,6 +31,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'DataWraith/auto_mkdir'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
