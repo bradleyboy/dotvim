@@ -33,6 +33,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'DataWraith/auto_mkdir'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -136,6 +138,13 @@ vnoremap <c-k> :m '<-2<CR>gv=gv
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsListSnippets = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " Autosource .vimrc after changes
 augroup autosourcing
