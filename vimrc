@@ -46,19 +46,34 @@ set background=dark
 let base16colorspace=256
 colorscheme base16-ocean
 
-set number
-set hlsearch
-set incsearch
-set autoread
+set number " show line numbers
+set hlsearch " highlight search
+set incsearch " search incrementally
+set autoread " automatically read changes from the filesystem
+
+" Turn off backups and their ilk
 set nobackup
 set noswapfile
+
+" Smart indentation
 set autoindent
 set smartindent
+
+" Ignore case when searching
 set ignorecase
+" Ignore case only when pattern is all lowercase
 set smartcase
+
+" Turn off the ugly pipes separating splits
 set fillchars=""
+
+" Automatically write when overwriting a buffer. #yolo
 set autowriteall
+
+" No bells, visual or otherwise
 set noerrorbells visualbell t_vb=
+
+" Show the cmd at the bottom of the screen
 set showcmd
 
 " splits the right way
@@ -74,12 +89,14 @@ set softtabstop=4
 " Ensure file saves get picked up properly by webpack, et al
 set backupcopy=yes
 
-" Always show vim-airline, even with no splits
-set laststatus=2
-let g:airline_powerline_fonts = 1
-
 " Lower update time for git-gutter's sake
 set updatetime=1000
+
+" Always show status
+set laststatus=2
+
+" Airline settings
+let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 
 " JSX
@@ -108,6 +125,19 @@ let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_port = "6080"
 let g:hound_repo_paths = {
     \ "Etsyweb": "~/development/Etsyweb" }
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsListSnippets = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+" ack.vim
+" Use silver searcher if available
+if executable('ag')
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
@@ -147,19 +177,6 @@ map <C-H> <C-W>h<C-W>_
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsListSnippets = '<c-tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
-
-" ack.vim
-" Use silver searcher if available
-if executable('ag')
-    let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
 
 " Autosource .vimrc after changes
 augroup autosourcing
