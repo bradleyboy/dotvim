@@ -184,3 +184,10 @@ augroup autosourcing
     autocmd BufWritePost vimrc source %
     autocmd BufWritePre * StripWhitespace
 augroup END
+
+"
+" MACROS
+"
+
+" Convert node requires to ES6 imports
+let @e='0ciwimportf=ciwfromwdf(f)xj'
