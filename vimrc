@@ -35,6 +35,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'DataWraith/auto_mkdir'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mileszs/ack.vim'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -153,6 +154,12 @@ let g:UltiSnipsListSnippets = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+" ack.vim
+" Use silver searcher if available
+if executable('ag')
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 " Autosource .vimrc after changes
 augroup autosourcing
