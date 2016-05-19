@@ -126,6 +126,8 @@ inoremap jj <ESC>
 inoremap kk <ESC>:w<CR>
 " map 0 to first non-blank character
 map 0 ^
+" b/c shift-4 is not comfortable
+map 4 $
 
 " Move lines up/down
 nnoremap <c-j> :m .+1<CR>==
