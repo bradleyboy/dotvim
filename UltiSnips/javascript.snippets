@@ -1,5 +1,5 @@
 snippet rc "Stateless react component"
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const $1 = (props) => {
 	return <${2:div}>
@@ -13,6 +13,13 @@ export default $1;
 endsnippet
 
 snippet acon "Action constant"
-const $1 = '$1';
+export const $1 = '$1';
 endsnippet
 
+snippet acreate "Action creator"
+export const $1 = () => (
+	{
+		type: $2,
+	}
+);
+endsnippet
