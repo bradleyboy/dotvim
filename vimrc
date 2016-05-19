@@ -137,6 +137,12 @@ inoremap <c-k> <Esc>:m .-2<CR>==gi
 vnoremap <c-j> :m '>+1<CR>gv=gv
 vnoremap <c-k> :m '<-2<CR>gv=gv
 
+" Sane window navigation
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
