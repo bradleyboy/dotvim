@@ -26,6 +26,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'mattn/webapi-vim'
 Plugin 'urthbound/hound.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -125,6 +126,12 @@ let g:hound_base_url = "hound.etsycorp.com"
 let g:hound_port = "6080"
 let g:hound_repo_paths = {
     \ "Etsyweb": "~/development/Etsyweb" }
+
+" automatically search for the word under our cursor
+nmap <Leader>h :call HoundQF(expand('<cword>'))<cr>
+
+" needed so you can jump to files from hound results
+set path=.,/usr/include,/home/bdaily/development/Etsyweb,
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<tab>'
