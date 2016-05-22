@@ -37,6 +37,7 @@ Plugin 'DataWraith/auto_mkdir'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -95,6 +96,9 @@ set updatetime=1000
 
 " Always show status
 set laststatus=2
+
+" Use system clipboard for yanks, deletes, puts
+set clipboard=unnamed
 
 " Airline settings
 let g:airline_powerline_fonts = 1
