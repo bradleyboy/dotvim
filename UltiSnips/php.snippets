@@ -1,0 +1,31 @@
+snippet endpoint "Create an Etsy API Endpoint"
+<?php
+
+class $1 implements Api_Endpoint_Component {
+	use Api_Endpoint_DefaultImplementation;
+
+	public static function desc() {
+		return "$2";
+	}
+
+	public static function resultType() {
+		return Api::ADHOC_ARRAY;
+	}
+
+	public static function route() {
+		return 'POST $3';
+	}
+
+	public static function includedServices() {
+		return [ Api_Service::AJAX ];
+	}
+
+	public static function declareInput(Api_Input_Interface $input) {
+
+	}
+
+	public static function handle(Api_Input $input, Api_Response $response) {
+		$0
+	}
+}
+endsnippet

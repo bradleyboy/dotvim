@@ -38,6 +38,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -149,6 +150,9 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 if executable('ag')
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+" mustache abbreviations
+let g:mustache_abbreviations = 1
 
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
