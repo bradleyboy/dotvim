@@ -159,7 +159,7 @@ nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
 nmap <Leader>1 :NERDTreeToggle<cr>      " ,1 to toggle NERDTree
 nmap <c-R> :BTags<cr>             " Ctrl-R to search symbols
 nmap <c-E> :History<cr>           " Ctrl-E for recent files
-nnoremap <Leader>e :Buffers<cr>           " Ctrl-tab for open buffers
+nnoremap <Leader>b :Buffers<cr>           " Ctrl-tab for open buffers
 nmap <Leader><space> :nohlsearch<cr>    " Clear search hilite
 nmap <c-P> :Files<cr>                   " fzf filesearch
 nmap <c-S> :w<cr>                       " Ctrl-S to save
@@ -192,6 +192,9 @@ map <C-H> <C-W>h<C-W>_
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
+
+" Creating file in current buffer's directory
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Autosource .vimrc after changes
 augroup autosourcing
