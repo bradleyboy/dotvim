@@ -39,6 +39,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -157,11 +158,12 @@ let g:mustache_abbreviations = 1
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
 nmap <Leader>1 :NERDTreeToggle<cr>      " ,1 to toggle NERDTree
+nmap <Leader>n :NERDTreeFind<cr>
 nmap <c-R> :BTags<cr>             " Ctrl-R to search symbols
 nmap <c-E> :History<cr>           " Ctrl-E for recent files
 nnoremap <Leader>b :Buffers<cr>           " Ctrl-tab for open buffers
 nmap <Leader><space> :nohlsearch<cr>    " Clear search hilite
-nmap <c-P> :Files<cr>                   " fzf filesearch
+nmap <c-P> :Files<cr>
 nmap <c-S> :w<cr>                       " Ctrl-S to save
 noremap <leader>x :bd<CR>
 noremap <leader>w :w<CR>
@@ -192,7 +194,11 @@ nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 
 " Creating file in current buffer's directory
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Quick indendation fix for the current line
+nnoremap > <S-V>><Esc>
+nnoremap < <S-V><<Esc>
 
 " Autosource .vimrc after changes
 augroup autosourcing
@@ -207,3 +213,5 @@ augroup END
 
 " Convert node requires to ES6 imports
 let @e='0ciwimportf=ciwfromwdf(f)xj'
+
+let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
