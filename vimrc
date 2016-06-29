@@ -40,6 +40,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'vim-scripts/nagios-syntax'
+Plugin 'jpalardy/vim-slime'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -154,6 +156,8 @@ endif
 
 " mustache abbreviations
 let g:mustache_abbreviations = 1
+
+let g:slime_target = "tmux"
 
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
