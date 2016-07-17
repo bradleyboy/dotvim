@@ -42,6 +42,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-scripts/nagios-syntax'
 Plugin 'jpalardy/vim-slime'
+Plugin 'reedes/vim-thematic'
+Plugin 'jnurmine/zenburn'
+Plugin 'kristijanhusak/vim-hybrid-material'
 call vundle#end()            " required
 filetype plugin indent on
 syntax on
@@ -107,6 +110,14 @@ set clipboard=unnamed
 " Airline settings
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
+let g:airline_right_sep = ''
+
+function! AirlineInit()
+    let g:airline_section_x = ''
+    let g:airline_section_y = ''
+    let g:airline_section_z = ''
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 " JSX
 let g:jsx_ext_required = 0
@@ -158,6 +169,21 @@ endif
 let g:mustache_abbreviations = 1
 
 let g:slime_target = "tmux"
+
+let g:thematic#defaults = {
+\ 'airline-theme': 'base16',
+\ 'background': 'dark',
+\ }
+
+let g:thematic#themes = {
+\ 'ocean': {'colorscheme': 'base16-ocean',
+\          },
+\ 'zen': {'colorscheme': 'zenburn',
+\        },
+\ 'material': {'colorscheme': 'hybrid_reverse',
+\              'airline-theme': 'hybrid',
+\             },
+\ }
 
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
