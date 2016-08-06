@@ -53,7 +53,7 @@ let mapleader=","
 
 set background=dark
 let base16colorspace=256
-colorscheme base16-ocean
+"colorscheme base16-ocean
 
 set number " show line numbers
 set hlsearch " highlight search
@@ -181,9 +181,11 @@ let g:thematic#themes = {
 \ 'zen': {'colorscheme': 'zenburn',
 \        },
 \ 'material': {'colorscheme': 'hybrid_reverse',
-\              'airline-theme': 'hybrid',
+\              'airline-theme': 'serene',
 \             },
 \ }
+
+let g:thematic#theme_name = 'material'
 
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>         " ,ev to edit .vimrc
