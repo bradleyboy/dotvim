@@ -150,7 +150,9 @@ let g:hound_repo_paths = {
 nmap <Leader>h :call HoundQF(expand('<cword>'))<cr>
 
 " needed so you can jump to files from hound results
-set path=.,/usr/include,/home/bdaily/development/Etsyweb,
+set path=.,/usr/include,/home/bdaily/development/Etsyweb,~/development/Etsyweb/phplib
+set includeexpr=substitute(v:fname,'_','/','g')
+set suffixesadd+=.php
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<tab>'
