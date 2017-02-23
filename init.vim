@@ -2,11 +2,8 @@ set nocompatible              " be iMproved, required
 set backspace=indent,eol,start
 filetype off                  " required
 
-set t_Co=256
-
 " Specify a directory for plugins
 call plug#begin('~/.local/share/nvim/plugged')
-" let Vundle manage Vundle, required
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -51,7 +48,6 @@ filetype plugin indent on
 syntax on
 set cursorline
 set scrolloff=3
-set termguicolors
 
 " Activate deoplete by default
 let g:deoplete#enable_at_startup = 1
@@ -238,6 +234,15 @@ nnoremap P P=`]<C-o>
 
 " Creating file in current buffer's directory
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Open dev config
+map <Leader>d :e /home/bdaily/development/Etsyweb/phplib/EtsyConfig/local_development.php<CR>
+
+" Open development.php to CSTM section
+map <Leader>dc :e +23263 /home/bdaily/development/Etsyweb/phplib/EtsyConfig/development.php<CR>
+
+" Open production.php to CSTM section
+map <Leader>dp :e +32279 /home/bdaily/development/Etsyweb/phplib/EtsyConfig/production.php<CR>
 
 " Replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
