@@ -25,7 +25,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'DataWraith/auto_mkdir'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -39,9 +39,14 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'Shougo/deoplete.nvim'
 Plug 'padawan-php/deoplete-padawan'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'shawncplus/phpcomplete.vim'
 Plug 'neomake/neomake'
 Plug 'othree/jspc.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'wincent/loupe'
+Plug 'Shougo/denite.nvim'
+Plug 'chemzqm/vim-easygit'
+Plug 'chemzqm/denite-git'
+Plug 'cakebaker/scss-syntax.vim'
 call plug#end()            " required
 
 filetype plugin indent on
@@ -51,23 +56,35 @@ set scrolloff=3
 
 " Activate deoplete by default
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#auto_completion_start_length = 1
+"let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+"let g:deoplete#omni#input_patterns.php = [
+"\'[^. \t0-9]\->\w*',
+"\'[^. \t0-9]\::\w*',
+"\]
 
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_functions = {}
-"let g:deoplete#omni_patterns.php =
-    "\ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-"let g:deoplete#omni_patterns.javascript = '[^. *\t]\.\w*'
+let g:deoplete#ignore_sources = {}
+call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+"call deoplete#custom#set('omni', 'mark', '')
 
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
+"let g:deoplete#omni#functions = {}
+"let g:deoplete#omni#functions.javascript = [
+  "\ 'tern#Complete',
+  "\ 'jspc#omni'
+"\]
+
+"let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_php_enabled_makers = ['php', 'phpcs']
 let g:neomake_php_phpcs_args_standard = "/home/".expand($USER)."/development/Etsyweb/tests/standards/stable-ruleset.xml"
 
+"let g:deoplete#sources#padawan#server_command = "/home/bdaily/development/me/padawan.php/bin/padawan-server"
+let g:deoplete#sources#padawan#server_autostart=0
 let mapleader=","
 
 set background=dark
@@ -176,6 +193,8 @@ endif
 let g:mustache_abbreviations = 1
 
 let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": ":.2"}
+let g:slime_dont_ask_default = 1
 
 let g:thematic#defaults = {
 \ 'airline-theme': 'base16',
@@ -258,6 +277,11 @@ augroup autosourcing
     autocmd BufWritePre * StripWhitespace
     autocmd BufEnter,BufWritePost * Neomake
 augroup END
+
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
 
 "
 " MACROS
