@@ -249,3 +249,5 @@ augroup END
 let @e='0ciwimportf=ciwfromwdf(f)xj'
 
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
