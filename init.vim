@@ -18,7 +18,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/webapi-vim'
-Plug 'urthbound/hound.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'godlygeek/tabular'
@@ -81,9 +80,7 @@ call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_php_enabled_makers = ['php', 'phpcs']
-let g:neomake_php_phpcs_args_standard = "/home/".expand($USER)."/development/Etsyweb/tests/standards/stable-ruleset.xml"
 
-"let g:deoplete#sources#padawan#server_command = "/home/bdaily/development/me/padawan.php/bin/padawan-server"
 let g:deoplete#sources#padawan#server_autostart=0
 let mapleader=","
 
@@ -162,17 +159,7 @@ autocmd User AirlineAfterInit call AirlineInit()
 let g:jsx_ext_required = 0
 highlight link xmlEndTag xmlTag
 
-let g:hound_repos = "Etsyweb"
-let g:hound_base_url = "hound.etsycorp.com"
-let g:hound_port = "6080"
-let g:hound_repo_paths = {
-    \ "Etsyweb": "~/development/Etsyweb" }
-
-" automatically search for the word under our cursor
-nmap <Leader>h :call HoundQF(expand('<cword>'))<cr>
-
 " needed so you can jump to files from hound results
-set path=.,/usr/include,/home/bdaily/development/Etsyweb,~/development/Etsyweb/phplib
 set includeexpr=substitute(v:fname,'_','/','g')
 set suffixesadd+=.php
 
@@ -254,15 +241,6 @@ nnoremap P P=`]<C-o>
 " Creating file in current buffer's directory
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" Open dev config
-map <Leader>d :e /home/bdaily/development/Etsyweb/phplib/EtsyConfig/local_development.php<CR>
-
-" Open development.php to CSTM section
-map <Leader>dc :e +23263 /home/bdaily/development/Etsyweb/phplib/EtsyConfig/development.php<CR>
-
-" Open production.php to CSTM section
-map <Leader>dp :e +32279 /home/bdaily/development/Etsyweb/phplib/EtsyConfig/production.php<CR>
-
 " Replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 
@@ -293,4 +271,3 @@ let @e='0ciwimportf=ciwfromwdf(f)xj'
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
 let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
