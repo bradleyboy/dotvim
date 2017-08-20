@@ -46,6 +46,8 @@ Plug 'Shougo/denite.nvim'
 Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'sbdchd/neoformat'
 call plug#end()            " required
 
 filetype plugin indent on
@@ -199,6 +201,7 @@ let g:thematic#themes = {
 \ }
 
 let g:thematic#theme_name = 'material'
+let g:NERDTreeShowHidden = 1
 
 " Mappings
 nmap <Leader>ev :e $MYVIMRC<cr>
@@ -248,12 +251,17 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap > <S-V>><Esc>
 nnoremap < <S-V><<Esc>
 
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript\ --stdin\ --single-quote\ --trailing-comma\ es5
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote\ --trailing-comma\ es5
+let g:neoformat_try_formatprg = 1
+
 " Autosource .vimrc after changes
 augroup autosourcing
     autocmd!
     autocmd BufWritePost init.vim source %
     autocmd BufWritePre * StripWhitespace
     autocmd BufEnter,BufWritePost * Neomake
+    autocmd BufWritePre *.ts,*.js Neoformat
 augroup END
 
 if has("persistent_undo")
